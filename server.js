@@ -6,7 +6,11 @@ var server = app.listen(5000, () => {
     console.log(`Listening on port 5000`);
 });
 
-app.use(express.static('.'));
+app.use(express.static('public'));
+
+app.get("/", function(req, res) {
+    res.send("<h1>Hello World!</h1>")
+})
 
 var socket = require('socket.io');
 

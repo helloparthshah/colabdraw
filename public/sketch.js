@@ -9,7 +9,7 @@ function setup() {
     createCanvas(800, 800);
     background(0);
 
-    socket = io.connect('https://colabdraw.netlify.app');
+    socket = io.connect('./');
 
     let tpath = [];
 
