@@ -8,13 +8,20 @@ app.get("/", function(req, res) {
     res.send("<h1>Hello World!</h1>")
 })
 
-var server = app.listen(process.env.PORT || 5000, () => {
-    console.log(`Listening on port 5000`);
+var port = process.env.PORT || 5000;
+
+var server = app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 });
 
 var socket = require('socket.io');
 
 var io = socket(server);
+
+io.configure(function() {
+    io.set("transports", ["xhr-polling"]);
+    io.set("polling duration", 10);
+});
 
 io.sockets.on('connection', (socket) => {
     console.log('New connection: ' + socket.id);

@@ -9,7 +9,7 @@ function setup() {
     createCanvas(800, 800);
     background(0);
 
-    socket = io.connect('http://localhost:5000');
+    socket = io.connect(window.location.hostname);
 
     let tpath = [];
 
