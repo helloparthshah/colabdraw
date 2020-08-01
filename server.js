@@ -18,7 +18,15 @@ var socket = require('socket.io');
 
 var io = socket(server);
 
-/* io.sockets.configure(function() {
+io.set("transports", ["xhr-polling"]);
+io.set("polling duration", 10);
+
+/* ({
+    transports: ["xhr-polling"],
+    "polling duration": 10,
+}) */
+
+/* io.configure(function() {
     io.set("transports", ["xhr-polling"]);
     io.set("polling duration", 10);
 }); */
