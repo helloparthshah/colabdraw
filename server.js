@@ -18,10 +18,10 @@ var socket = require('socket.io');
 
 var io = socket(server);
 
-io.configure(function() {
+/* io.sockets.configure(function() {
     io.set("transports", ["xhr-polling"]);
     io.set("polling duration", 10);
-});
+}); */
 
 io.sockets.on('connection', (socket) => {
     console.log('New connection: ' + socket.id);
